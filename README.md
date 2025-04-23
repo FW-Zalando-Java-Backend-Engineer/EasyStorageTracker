@@ -1,59 +1,100 @@
-# 🚚 **EasyStorageTracker – Java Generics & GitHub Practice**
+# 🚚 EasyStorageTracker – Java Generics Assignment
 
-Welcome to the **EasyStorageTracker** assignment! You're about to build a mini Java system to simulate a smart storage manager that can hold different types of items — think of an Amazon-like warehouse but way smaller and way cooler. 🧺📦🧃
-
-This project is perfect for **students new to Generics**, Java development, and GitHub collaboration.
+Welcome to the **EasyStorageTracker** — a hands-on Java project that teaches you how to work with **Generics**, **wildcards**, **bounded types**, and **GitHub workflows** while modeling a real-world storage system. This one’s easy, useful, and kind of fun too. 🎉
 
 ---
 
-## 🧰 Real-World Theme:
-You’ve been hired by a startup building a smart inventory system. They need a way to store and retrieve items like books, gadgets, or snacks — safely and with reusable, type-safe code. That’s where your **Java Generics skills** come in!
+## 🎯 Objective
+
+You’re building a smart storage tracking system for a fictional delivery company. The company needs flexible, type-safe storage for everything — from books to gadgets, and even snacks.
 
 ---
 
-## ✅ Learning Goals
-By completing this project, you’ll practice:
-- 🧪 **Generic classes** (e.g., `StorageUnit<T>`)
-- 🧰 **Bounded types**
-- 🔄 **Generic methods**
-- 🧭 **Wildcards in collections**
-- 💻 **Basic GitHub usage**
-- 📁 **Modular Java structure**
+## ✅ Learning Outcomes
+
+This project will help you practice:
+
+- 📦 Generic Classes
+- 🧠 Generic Methods
+- 🧃 Bounded Type Parameters (`<T extends Perishable>`)
+- 🎯 Wildcards (`List<? extends Object>`)
+- 🧰 Java Utility Classes
+- 💡 Clean Java project structure
+- 🌐 GitHub version control & documentation
 
 ---
 
-## 📦 Assignment Requirements
+## 🚀 Assignment Requirements
 
-### 🔹 Task 1: GitHub Setup (5 points)
-- Create a **public GitHub repository** named: `EasyStorageTracker-YourName`.
-- Add a `README.md` with a 2–3 sentence summary of your app.
-- Push your final project code and any updates.
-
-### 🔹 Task 2: Create a Generic Storage Class (10 points)
-- Create a class called `StorageUnit<T>` that:
-  - Can store a single item (`addItem`)
-  - Can return that item (`getItem`)
-- Make it reusable for different types of items (e.g., Book, Device, Snack).
-
-### 🔹 Task 3: Build a Small Test App (10 points)
-- Create a few item classes like `Book`, `Device`, `Snack`.
-- In your `main()` method, demonstrate:
-  - Creating `StorageUnit<Book>`, `StorageUnit<Device>` etc.
-  - Adding and retrieving the items.
-
-### 🔹 Task 4: Use a Generic Method (5 points)
-- Write a static generic method like `<T> void displayItem(T item)` to print any item info.
-- Use this in your test code.
-
-### 🔹 Task 5: Add a Wildcard Method (5 points)
-- Write a method that accepts `List<? extends Object>` and prints all stored items.
-
-### 🔹 Bonus (Optional): Type Boundaries (2 bonus points)
-- Create a bounded type like `<T extends Perishable>` to represent only perishable items (e.g., Milk, Cheese).
+### 🔹 Task 1: Create Your GitHub Repo (5 points)
+- Create a **new public GitHub repo**: `EasyStorageTracker-YourName`
+- Add a basic `README.md` explaining your project (2–3 lines)
+- Upload your Java code, structured as outlined below
+- Push at least **3 commits**:
+  1. Initial structure
+  2. Generic classes + test code
+  3. Utility methods and extras
 
 ---
 
-## 🗂️ Suggested File Structure
+### 🔹 Task 2: Build the Storage System (20 points)
+
+#### ✅ Create `StorageUnit<T>` (Generic Class)
+- Can store any object of type T
+- Methods:
+  - `void addItem(T item)`
+  - `T getItem()`
+
+#### ✅ Create a `Perishable` class (for food items, milk, etc.)
+- Includes a field like `expirationDate` or `isExpired()`
+- Will be used in a **bounded generic method**
+
+#### ✅ Create at least 3 item classes:
+- `Book`, `Device`, and `Snack` (your own properties + constructor)
+
+#### ✅ Create a main class (`TrackerDemo`) to:
+- Store different types in their respective `StorageUnit<T>`
+- Use at least one **generic method** and one **wildcard method**
+
+---
+
+### 🔹 Task 3: Create a Utility Class (20 points)
+
+Create a `StorageUtils` class with the following:
+
+#### 📌 Wildcard Method:
+```java
+public static void printItems(List<? extends Object> items)
+```
+
+#### 📌 Generic Method:
+```java
+public static <T> void displayItem(T item)
+```
+
+#### 📌 Bounded Type Method:
+```java
+public static <T extends Perishable> void checkPerishable(T item)
+```
+
+- Use `instanceof`, simple `System.out.println()` checks, etc.
+
+---
+
+## 💡 Bonus / Extra Tasks (Optional – up to 10 points)
+
+### 🔸 Extra Task 1: Create a `StorageManager<T>` that stores **multiple** items in a list (instead of one item).
+
+### 🔸 Extra Task 2: Make your `StorageUnit<T>` class **implement a generic interface** (e.g., `Storable<T>` with `save()` and `load()` methods).
+
+### 🔸 Extra Task 3: Create a **JSON-style output** for each item (mock serialization, no libraries needed).
+
+### 🔸 Extra Task 4: Include **Javadoc comments** in all your classes and methods.
+
+---
+
+## 🗂️ Suggested Project Structure
+
 ```
 EasyStorageTracker/
 ├── src/
@@ -61,9 +102,10 @@ EasyStorageTracker/
 │   │   ├── Book.java
 │   │   ├── Device.java
 │   │   ├── Snack.java
+│   │   ├── Perishable.java
 │   ├── storage/
 │   │   ├── StorageUnit.java
-│   │   └── StorageUtils.java
+│   │   ├── StorageUtils.java
 │   └── main/
 │       └── TrackerDemo.java
 ├── README.md
@@ -71,16 +113,19 @@ EasyStorageTracker/
 
 ---
 
-## 📥 Submission Guidelines
-- Upload your project to GitHub under the specified repo name.
-- Submit your **repository link** via your learning platform or email.
+## 📤 Submission
+
+- Submit your GitHub repo link via your LMS or class portal.
+- Make sure the repo is public and has a clear `README.md`.
 
 ---
 
-## 📚 Optional Reading
-- [Java Generics Guide – Oracle](https://docs.oracle.com/javase/tutorial/java/generics/)
-- [GitHub Getting Started](https://docs.github.com/en/get-started/quickstart)
+## 🧠 Tip for Success
 
----
+Don’t overthink it. Focus on:
 
-Would you like this as a **downloadable README.md file** or a **starter GitHub repo template**? I can generate either one for you next!
+- Clear and working generic structures
+- Clean project layout
+- Using GitHub correctly
+- Trying the extra tasks if you’re feeling confident!
+
